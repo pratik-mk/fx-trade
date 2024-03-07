@@ -1,15 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import ErrorPage from "./pages/Errorpage";
+import ChartRec from "./pages/ChartRec";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <Homepage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/test",
-    element: <Homepage />,
+    path: "/chartrec",
+    element: <ChartRec />,
   },
 ]);
