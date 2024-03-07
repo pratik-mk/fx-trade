@@ -14,7 +14,7 @@ export default function BasicTable({ rowData, columns }) {
         <TableHead>
           <TableRow>
             {columns.map((col, index) => (
-              <TableCell align={index == 0 ? "" : "right"}>{col}</TableCell>
+              <TableCell align={index === 0 ? "" : "right"}>{col}</TableCell>
             ))}
           </TableRow>
         </TableHead>
