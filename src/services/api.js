@@ -38,14 +38,9 @@ export const rowData = [
   "worst_trade",
 ];
 
-const rootUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://fx-trade.vercel.app"
-    : BASE_URL;
-
 export const getAccounts = async () => {
   try {
-    const response = await axios.get(`${rootUrl}/data/accounts`);
+    const response = await axios.get(`${BASE_URL}/data/accounts`);
     return response;
   } catch (error) {
     console.error(error);

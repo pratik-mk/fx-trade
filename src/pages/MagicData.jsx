@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import MagicDataTable from "../components/MagicDataTable/MagicDataTable";
-
-// const BASE_URL = "http://69.57.172.140";
+import { BASE_URL } from "../constant";
 
 const MagicData = () => {
   let { acc_no } = useParams();
@@ -12,7 +11,7 @@ const MagicData = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `/data/account/magic_nos?account=${acc_no}`
+        `${BASE_URL}/data/account/magic_nos?account=${acc_no}`
       );
       // console.log('RES 1', response.data.data.magic_numbers)
 
