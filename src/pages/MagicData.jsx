@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
-import MagicDataTable from '../components/MagicDataTable/MagicDataTable'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import MagicDataTable from "../components/MagicDataTable/MagicDataTable";
 
-const BASE_URL = 'http://69.57.172.140'
+// const BASE_URL = "http://69.57.172.140";
 
 const MagicData = () => {
-  let { acc_no } = useParams()
-  const [magicNumData, setMagicNumData] = useState([])
+  let { acc_no } = useParams();
+  const [magicNumData, setMagicNumData] = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `${BASE_URL}/data/account/magic_nos?account=${acc_no}`
-      )
+        `/data/account/magic_nos?account=${acc_no}`
+      );
       // console.log('RES 1', response.data.data.magic_numbers)
 
       // Wait for magicData to be updated
@@ -21,30 +21,30 @@ const MagicData = () => {
         response.data.data.magic_numbers.map(async (magicNumber, index) => {
           try {
             const response = await axios.get(
-              `${BASE_URL}/data/account/trades_stats?account=${acc_no}&magic_no=${magicNumber}`
-            )
+              `/data/account/trades_stats?account=${acc_no}&magic_no=${magicNumber}`
+            );
             // console.log(`RES ${index + 2}`, response)
-            setMagicNumData((prevData) => [...prevData, response.data.data])
+            setMagicNumData((prevData) => [...prevData, response.data.data]);
             // Handle response here if needed
           } catch (error) {
-            console.log(error.response)
+            console.log(error.response);
           }
         })
-      )
+      );
     } catch (error) {
-      console.log(error.response)
+      console.log(error.response);
     }
-  }
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [acc_no])
+    fetchData();
+  }, [acc_no]);
 
   return (
     <div>
       <MagicDataTable data={magicNumData} />
     </div>
-  )
-}
+  );
+};
 
-export default MagicData
+export default MagicData;
