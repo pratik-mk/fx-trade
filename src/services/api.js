@@ -1,4 +1,5 @@
 import axios from "axios";
+import { BASE_URL } from "../constant";
 
 export const columns = ["Accounts"];
 
@@ -37,11 +38,14 @@ export const rowData = [
   "worst_trade",
 ];
 
-// const BASE_URL = "http://69.57.172.140";
+const rootUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://fx-trade.vercel.app"
+    : BASE_URL;
 
 export const getAccounts = async () => {
   try {
-    const response = await axios.get(`/data/accounts`);
+    const response = await axios.get(`${rootUrl}/data/accounts`);
     return response;
   } catch (error) {
     console.error(error);
