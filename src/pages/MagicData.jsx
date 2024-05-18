@@ -20,7 +20,7 @@ const MagicData = () => {
         response.data.data.magic_numbers.map(async (magicNumber, index) => {
           try {
             const response = await axios.get(
-              `/data/account/trades_stats?account=${acc_no}&magic_no=${magicNumber}`
+              `${BASE_URL}/data/account/trades_stats?account=${acc_no}&magic_no=${magicNumber}`
             );
             // console.log(`RES ${index + 2}`, response)
             setMagicNumData((prevData) => [...prevData, response.data.data]);
