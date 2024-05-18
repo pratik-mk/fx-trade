@@ -40,7 +40,7 @@ export const rowData = [
 
 export const getAccounts = async () => {
   try {
-    const response = await axios.get(`${BASE_URL}/data/accounts`);
+    const response = await axios.get(`/api/data/accounts`);
     return response;
   } catch (error) {
     console.error(error);
