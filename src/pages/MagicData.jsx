@@ -32,8 +32,8 @@ const MagicData = () => {
       dateValue.endDate
     );
     console.log("FETCH_TRADE_BY_DATE: ", response);
-    // setMagicNumData(response.data.data.data);
-  }, [acc_no]);
+    setMagicNumData(response.data.data.data);
+  }, [acc_no, dateValue.startDate, dateValue.endDate]);
 
   const fetchAllTrades = useCallback(async () => {
     const response = await getAllTrades(acc_no);
