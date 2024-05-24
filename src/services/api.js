@@ -47,18 +47,25 @@ export const getAccounts = async () => {
   }
 };
 
-// export const getEAFromAccount = async (acc, magicNumber) => {
-//   try {
-//     const response1 = await axios.get(
-//       `${BASE_URL}/data/account/magic_nos?account=${acc}`
-//     )
+export const getAllTrades = async (acc) => {
+  try {
+    const response = await axios.get(
+      `/api/data/account/all_trades_stats?account=${acc}`
+    );
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-//     const response2 = axios.get(
-//       `${BASE_URL}/data/account/trades_stats?account=${acc}&magic_no=${magicNumber}`
-//     )
-//     return response1 response2
-//     // console.log(response);
-//   } catch (error) {
-//     console.error(error)
-//   }
-// }
+export const getAllTradesByDate = async (acc, startDate, endDate) => {
+  try {
+    // Date format YYYY-MM-DD
+    const response = await axios.get(
+      `/api/data/account/all_trades_stats?account=${acc}&start_date=${startDate}&end_date=${endDate}`
+    );
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
