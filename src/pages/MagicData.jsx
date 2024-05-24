@@ -9,7 +9,6 @@ const MagicData = () => {
 
   const fetchAllTrades = useCallback(async () => {
     const response = await getAllTrades(acc_no);
-    console.log(response);
     setMagicNumData(response.data.data.data);
   }, [acc_no]);
 
