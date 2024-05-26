@@ -31,3 +31,30 @@ export const getAllTradesByDate = async (acc, startDate, endDate) => {
     console.error(error);
   }
 };
+
+export const getTradeByMagicNumberPagination = async (
+  acc,
+  magicNo,
+  page,
+  pageSize
+) => {
+  try {
+    const response = await axios.get(
+      `/api/data/account/get_magic_no_trades?account=${acc}&magic_no=${magicNo}&page=${page}&page_size=${pageSize}`
+    );
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getAllTradeByMagicNumber = async (acc, magicNo) => {
+  try {
+    const response = await axios.get(
+      `/api/data/account/get_magic_no_trades?account=${acc}&magic_no=${magicNo}`
+    );
+    return response;
+  } catch (error) {
+    console.error(error);
+  }
+};

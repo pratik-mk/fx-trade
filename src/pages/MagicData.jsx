@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import MagicDataTable from "../components/MagicDataTable/MagicDataTable";
 import { getAllTrades, getAllTradesByDate } from "../services/api";
 import { Container, TextField, Button, Typography } from "@mui/material";
+import Table from "../components/Table/Table";
+import { MAGIC_NUMBER_PATH, rowData } from "../utils/constant";
 
 const MagicData = () => {
   const [dateValue, setDateValue] = useState({
@@ -15,23 +16,18 @@ const MagicData = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setDateValue({
       ...dateValue,
       [name]: value,
     });
   };
 
-  console.log("DATEVALUE", dateValue.startDate, dateValue.endDate);
-
   const fetchTradesByDate = useCallback(async () => {
-    console.log("API_PAYLOAD", dateValue.startDate, dateValue.endDate);
     const response = await getAllTradesByDate(
       acc_no,
       dateValue.startDate,
       dateValue.endDate
     );
-    console.log("FETCH_TRADE_BY_DATE: ", response);
     setMagicNumData(response.data.data.data);
   }, [acc_no, dateValue.startDate, dateValue.endDate]);
 
@@ -81,7 +77,11 @@ const MagicData = () => {
           Submit
         </Button>
       </div>
-      <MagicDataTable data={magicNumData} />
+      <Table
+        columns={rowData}
+        rowData={magicNumData}
+        path={MAGIC_NUMBER_PATH}
+      />
     </Container>
   );
 };

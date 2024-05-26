@@ -36,3 +36,27 @@ export const rowData = [
   "winners_count",
   "worst_trade",
 ];
+
+export const ALL_TRADES_HEADER = [
+  "account",
+  "close_price",
+  "close_time",
+  "comment",
+  "commission",
+  "id",
+  "lots",
+  "magic_number",
+  "open_price",
+  "open_time",
+  "order_id",
+  "order_type",
+  "pnl",
+  "sl",
+  "swap",
+  "symbol",
+  "tp",
+];
+
+export const ACCOUNT_PATH = "ACCOUNT_PAGE";
+export const MAGIC_NUMBER_PATH = "MAGIC_NUMBER_PAGE";
+export const ALL_TRADES_PATH = "ALL_TRADES_PAGE";

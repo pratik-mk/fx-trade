@@ -40,7 +40,7 @@ const Homepage = () => {
           }
         />
       </div>
-      <Table rowData={rowData} columns={columns} getAcc={getAcc} />
+      <Table columns={columns} rowData={getAcc} />
     </Container>
   );
 };
