@@ -8,7 +8,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import Typography from '@mui/material/Typography';
 import { Search } from '@mui/icons-material';
 
-const SideNavbar = () => {
+const SideNavbar = ({children}) => {
   return (
     <>
     <div className='side-navbar'>
@@ -31,7 +31,7 @@ const SideNavbar = () => {
       </Typography>
     </div>
     <div>
-      
+      {children}
     </div>
 
     </>

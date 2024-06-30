@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { rows } from '../CustomTable/data';
+import SideNavbar from '../Layout/SideNavbar';
 
 const useStyles = makeStyles({
   table: {
@@ -66,6 +67,7 @@ export default function BasicTable() {
   const classes = useStyles();
 
   return (
+    <SideNavbar>
     <div>
       <div className={classes.label}>01-10</div>
       <TableContainer component={Paper} className={classes.tableContainer}>
@@ -105,5 +107,6 @@ export default function BasicTable() {
         </Table>
       </TableContainer>
     </div>
+    </SideNavbar>
   );
 }
