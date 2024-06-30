@@ -8,71 +8,21 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import { rows } from '../CustomTable/data';
-import SideNavbar from '../Layout/SideNavbar';
+import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
+import { useStyles } from './styles.js';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-    backgroundColor: '#2C2C2C',
-    borderSpacing: 0, 
-  },
-  head: {
-    backgroundColor: '#1F1F1F',
-  },
-  cell: {
-    color: '#FFFFFF',
-    borderBottom: 'none', 
-    padding: '8px 16px', 
-  },
-  magicNumberCell: {
-    color: 'yellow', 
-    textAlign:'center'
-   
-  },
-  row: {
-    border: 'none', // Remove border from rows
-    '&:nth-of-type(odd)': {
-      backgroundColor: '#2C2C2C',
-    },
-    '&:nth-of-type(even)': {
-      backgroundColor: '#2C2C2C',
-    },
-  },
-  redText: {
-    color: 'red',
-  },
-  greenText: {
-    color: 'green',
-  },
-  tableContainer: {
-    marginTop: '10px',
-    border: 'none', // Remove border from table container
-    padding: '0px', // Remove padding from table container
-    borderBottom: 'none',
-  },
-  label: {
-    color: '#FFFFFF',
-    fontSize: '18px',
-    fontWeight: 'bold',
-    margin: '10px 0',
-  },
-  MuiTableCellAlignCenter: {
-    '&.MuiTableCell-alignCenter': {
-      borderBottom: 'none',
-    },
-  },
-});
 
-export default function BasicTable() {
+
+export default function BasicTable({isEven}) {
   const classes = useStyles();
 
   return (
-    <SideNavbar>
+    
     <div>
       <div className={classes.label}>01-10</div>
       <TableContainer component={Paper} className={classes.tableContainer}>
         <Table className={classes.table} aria-label="simple table">
-          <TableHead className={classes.head}>
+          <TableHead className={isEven ? classes.headEven : classes.headOdd}>
             <TableRow>
               <TableCell className={classes.cell}>Account</TableCell>
               <TableCell className={classes.cell} align="center">Magic Number</TableCell>
@@ -88,11 +38,11 @@ export default function BasicTable() {
           </TableHead>
           <TableBody>
             {rows.map((row, index) => (
-              <TableRow key={index} className={classes.row}>
+              <TableRow key={index} className={isEven ? classes.rowEven : classes.rowOdd}>
                 <TableCell className={classes.cell} component="th" scope="row">
                   {row.account}
                 </TableCell>
-                <TableCell className={`${classes.cell} ${classes.magicNumberCell}`} align="center">{row.magicNumber}</TableCell>
+                <TableCell className={`${classes.cell} ${classes.magicNumberCell}`} align="center">{row.magicNumber}<CandlestickChartIcon fontSize='small' align="center" /></TableCell>
                 <TableCell className={`${row.avgLose < 0 ? classes.redText : classes.greenText} ${classes.MuiTableCellAlignCenter}`} align="center">{row.avgLose}</TableCell>
                 <TableCell className={`${row.avgLosePips < 0 ? classes.redText : classes.greenText} ${classes.MuiTableCellAlignCenter}`} align="center">{row.avgLosePips}</TableCell>
                 <TableCell className={`${row.avgNetPips < 0 ? classes.redText : classes.greenText} ${classes.MuiTableCellAlignCenter}`} align="center">{row.avgNetPips}</TableCell>
@@ -107,6 +57,5 @@ export default function BasicTable() {
         </Table>
       </TableContainer>
     </div>
-    </SideNavbar>
   );
 }

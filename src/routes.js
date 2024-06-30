@@ -3,8 +3,7 @@ import Homepage from "./pages/Homepage";
 import ErrorPage from "./pages/Errorpage";
 import MagicData from "./pages/MagicData";
 import AllTrades from "./pages/AllTrades";
-import BasicTable from "./components/CustomTable/CustomTable";
-import SideNavbar from "./components/Layout/SideNavbar";
+import TopEA from "./pages/TopEA";
 
 export const router = createBrowserRouter([
   {
@@ -21,12 +20,7 @@ export const router = createBrowserRouter([
     element: <AllTrades />,
   },
   {
-    path: "/table",
-    element: <BasicTable/>,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/layout",
-    element: <SideNavbar/>
+    path: "/TopEA",
+    element: <TopEA/>
   },
 ]);

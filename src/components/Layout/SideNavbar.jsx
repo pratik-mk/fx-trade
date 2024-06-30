@@ -6,7 +6,6 @@ import AdminPanelSettingsOutlinedIcon from '@mui/icons-material/AdminPanelSettin
 import ShieldOutlinedIcon from '@mui/icons-material/ShieldOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Typography from '@mui/material/Typography';
-import { Search } from '@mui/icons-material';
 
 const SideNavbar = ({children}) => {
   return (
