@@ -1,8 +1,6 @@
 body{
-
     background-color: rgb(41, 40, 40);
     }
-    
     .side-navbar {
         background-color: #111111;
         width: 100px;
@@ -17,30 +15,25 @@ body{
         justify-content: space-between; 
         color: #fff; 
     }
-    
-    .side-navbar .logo img {
+     .side-navbar .logo img {
         width: 28px; 
         height:65px;
         margin-bottom: 20px; 
         cursor: pointer;
     }
-    
-    .side-navbar ul {
+     .side-navbar ul {
         list-style: none;
         padding: 0;
         margin: 0;
         width: 100%;
         padding-bottom: 480px;
     }
-    
-    .side-navbar ul li {
+     .side-navbar ul li {
         margin-bottom: 25px;
         text-align: center; 
         cursor: pointer;
     }
-    
-    
-    .side-navbar ul li:hover svg {
+      .side-navbar ul li:hover svg {
         color: #ffcc00; 
     }
     .logout{

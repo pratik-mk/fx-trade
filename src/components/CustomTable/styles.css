@@ -7,10 +7,11 @@
   color: #ffffff !important;
   border-bottom: none !important;
   padding: 8px 16px;
+  text-align: center ;
 }
 .magicNumberCell {
   color: yellow !important;
-  text-align: center;
+  text-align: center !important;
 }
 .redText.MuiTableCell-root{
   color: red ;
@@ -25,8 +26,8 @@
   border: none;
   padding: 0;
   border-bottom: none;
-  width: 1200px;
-  height: 540px;
+  width: 1200px !important;
+  height: 540px !important;
   margin-left: 120px;
   overflow: hidden;
   margin-bottom: 50px;
@@ -36,9 +37,6 @@
   font-size: 18px;
   font-weight: bold;
   margin: 10px 0;
-}
-.labelCell{
-  font-size: xx-large;
 }
 .MuiTableCellAlignCenter.MuiTableCell-alignCenter {
   border-bottom: none;

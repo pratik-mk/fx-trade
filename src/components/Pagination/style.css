@@ -1,0 +1,31 @@
+.custom-pagination-root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-bottom: 20px;
+  }
+  .custom-pagination-item {
+    color: #4e4a4a !important;  
+    border-color: #8e8c8c !important;
+  }
+  .custom-pagination-item.Mui-selected {
+    background-color: rgba(0, 124, 249, 1)!important; 
+    color: #f4f1f1 !important;
+  }
+  .custom-pagination-button {
+    color: #fff !important; 
+    background-color: rgb(12, 12, 12); 
+    border-color: #8e8c8c !important;
+  }
+  .custom-pagination-button:hover {
+    color: #0e0ef8; 
+    border-color: #fff !important;
+  }
+  .custom-pagination-ul {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    list-style: none;
+  }
+  
