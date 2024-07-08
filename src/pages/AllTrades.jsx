@@ -17,7 +17,7 @@ const AllTrades = () => {
 
   useEffect(() => {
     fetchAlTradesByMagicNo();
-  }, []);
+  }, [fetchAlTradesByMagicNo]);
 
   return (
     <div>

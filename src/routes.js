@@ -1,27 +1,27 @@
-import { createBrowserRouter } from 'react-router-dom'
-import Homepage from './pages/Homepage'
-import ErrorPage from './pages/Errorpage'
-import MagicData from './pages/MagicData'
-import AllTrades from './pages/AllTrades'
-import EAPage from './components/EAPage/EAPage'
+import { createBrowserRouter } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import ErrorPage from "./pages/Errorpage";
+import MagicData from "./pages/MagicData";
+import AllTrades from "./pages/AllTrades";
+import TopEA from "./pages/TopEA";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Homepage />,
     errorElement: <ErrorPage />,
   },
   {
-    path: '/magic_no/:acc_no',
+    path: "/magic_no/:acc_no",
     element: <MagicData />,
   },
 
   {
-    path: '/account/:acc_no/magic_no/:magic_no',
+    path: "/account/:acc_no/magic_no/:magic_no",
     element: <AllTrades />,
   },
   {
-    path: '/topEA',
-    element: <EAPage />,
+    path: "/topEA",
+    element: <TopEA />,
   },
-])
+]);

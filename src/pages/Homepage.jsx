@@ -5,7 +5,7 @@ import { getAccounts } from "../services/api";
 // import TrendingDownIcon from '@mui/icons-material/TrendingDown'
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { useState, useEffect } from "react";
-import { columns, rowData } from "../utils/constant";
+import { columns } from "../utils/constant";
 
 const Homepage = () => {
   const [getAcc, setGetAcc] = useState([]);

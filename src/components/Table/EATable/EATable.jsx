@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Table,
   TableBody,
@@ -7,36 +7,24 @@ import {
   TableHead,
   TableRow,
   Paper,
-} from '@mui/material'
-import CandlestickChartIcon from '@mui/icons-material/CandlestickChart'
+} from "@mui/material";
+import CandlestickChartIcon from "@mui/icons-material/CandlestickChart";
 
-import './style.css'
+import "./style.css";
 
 const EATable = ({ rows, columns, isEven, rowData }) => {
   return (
-    <TableContainer
-      component={Paper}
-      className='tableContainer'
-    >
-      <Table
-        className='table'
-        aria-label='simple table'
-      >
-        <TableHead className={isEven ? 'headAlternative' : 'headDefault'}>
-          <TableRow className={isEven ? 'headDefault' : 'headAlternative'}>
-            <TableCell
-              colSpan={100}
-              className='labelCell'
-            >
+    <TableContainer component={Paper} className="tableContainer">
+      <Table className="table" aria-label="simple table">
+        <TableHead className={isEven ? "headAlternative" : "headDefault"}>
+          <TableRow className={isEven ? "headDefault" : "headAlternative"}>
+            <TableCell colSpan={100} className="labelCell">
               {rowData}
             </TableCell>
           </TableRow>
           <TableRow>
             {columns.map((column) => (
-              <TableCell
-                className='labelCell'
-                key={column.id}
-              >
+              <TableCell className="labelCell" key={column.id}>
                 {column.label}
               </TableCell>
             ))}
@@ -49,14 +37,14 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
               {columns.map((column) => (
                 <TableCell
                   className={`${
-                    row[column.id] < 0 ? 'redText' : 'greenText'
+                    row[column.id] < 0 ? "redText" : "greenText"
                   } alignCenter`}
                   key={column.id}
                 >
-                  {column.id === 'magic_number' ? (
-                    <a>
+                  {column.id === "magic_number" ? (
+                    <button className="linkButton">
                       {row[column.id]} <CandlestickChartIcon />
-                    </a>
+                    </button>
                   ) : (
                     row[column.id]
                   )}
@@ -67,7 +55,7 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
         </TableBody>
       </Table>
     </TableContainer>
-  )
-}
+  );
+};
 
-export default EATable
+export default EATable;
