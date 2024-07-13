@@ -59,10 +59,10 @@ export const getAllTradeByMagicNumber = async (acc, magicNo) => {
   }
 };
 
-export const getTopEa = async () => {
+export const getTopEa = async (params = "") => {
   try {
     const response = await axios.get(
-      `/api/data/account/all_trades_stats_top_ten`
+      `/api/data/account/all_trades_stats_top_ten?${params}`
     );
     return response;
   } catch (error) {

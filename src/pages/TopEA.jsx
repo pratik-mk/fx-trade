@@ -27,8 +27,20 @@ const TopEA = () => {
 
   useEffect(() => {
     async function fetchData() {
+      setLoading(true);
+      setError(null);
+
+      const combinedFilters = { ...filters, ...dateFilter };
+      const query = new URLSearchParams(
+        Object.fromEntries(
+          Object.entries(combinedFilters).filter(
+            ([_, v]) => v != null && v !== ""
+          )
+        )
+      ).toString();
+
       try {
-        const response = await getTopEa();
+        const response = await getTopEa(query);
         setRes(response.data.data.data);
       } catch (err) {
         setError(err.message);
@@ -37,7 +49,7 @@ const TopEA = () => {
       }
     }
     fetchData();
-  }, []);
+  }, [filters, dateFilter]);
 
   if (loading) {
     return (

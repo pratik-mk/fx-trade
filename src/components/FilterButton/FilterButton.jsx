@@ -15,13 +15,14 @@ import {
 const FilterButton = ({ onApply }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [filters, setFilters] = useState({
-    magicNumber: "",
+    magic_number: "",
     pf: "",
-    winPercentage: "",
-    noOfTrades: "",
-    buySell: "",
-    profitLoss: "",
+    win_percentage: "",
+    no_of_trades: "",
+    trade_type: "",
+    profit: "",
   });
+
   const popupRef = useRef(null);
 
   const handleClickOutside = (event) => {
@@ -62,8 +63,8 @@ const FilterButton = ({ onApply }) => {
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
             <Typography>Magic number</Typography>
             <TextField
-              name="magicNumber"
-              value={filters.magicNumber}
+              name="magic_number"
+              value={filters.magic_number}
               onChange={handleChange}
               inputProps={{
                 style: {
@@ -96,8 +97,8 @@ const FilterButton = ({ onApply }) => {
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
             <Typography>Win %</Typography>
             <TextField
-              name="winPercentage"
-              value={filters.winPercentage}
+              name="win_percentage"
+              value={filters.win_percentage}
               onChange={handleChange}
               inputProps={{
                 style: {
@@ -113,8 +114,8 @@ const FilterButton = ({ onApply }) => {
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
             <Typography>No of Trades</Typography>
             <TextField
-              name="noOfTrades"
-              value={filters.noOfTrades}
+              name="no_of_trades"
+              value={filters.no_of_trades}
               onChange={handleChange}
               inputProps={{
                 style: {
@@ -131,8 +132,8 @@ const FilterButton = ({ onApply }) => {
             <Typography>Buy/Sell</Typography>
             <FormControl size="small">
               <Select
-                name="buySell"
-                value={filters.buySell}
+                name="trade_type"
+                value={filters.trade_type}
                 onChange={handleChange}
                 inputProps={{
                   style: {
@@ -152,8 +153,8 @@ const FilterButton = ({ onApply }) => {
             <Typography>Profit/Loss</Typography>
             <FormControl size="small">
               <Select
-                name="profitLoss"
-                value={filters.profitLoss}
+                name="profit"
+                value={filters.profit}
                 onChange={handleChange}
                 inputProps={{
                   style: {
@@ -163,8 +164,8 @@ const FilterButton = ({ onApply }) => {
                 }}
                 id="profit-loss-dropdown"
               >
-                <MenuItem value={"Profit"}>Profit</MenuItem>
-                <MenuItem value={"Loss"}>Loss</MenuItem>
+                <MenuItem value={true}>Profit</MenuItem>
+                <MenuItem value={false}>Loss</MenuItem>
               </Select>
             </FormControl>
           </Box>
