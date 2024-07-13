@@ -1,0 +1,61 @@
+.root {
+    display: flex;
+  }
+  
+  .drawer {
+    width: 240px;
+    flex-shrink: 0;
+  }
+  
+  .appBar {
+    width: calc(100% - 240px);
+    margin-left: 240px;
+  }
+  
+  .menuButton {
+    margin-right: 16px;
+  }
+  
+  .toolbar {
+    min-height: 64px;
+  }
+  
+  .drawerPaper {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 24px;
+  }
+  
+  .logo {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  
+  .logout {
+    width: 100%;
+  }
+  
+  @media (max-width: 600px) {
+    .appBar {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .drawer {
+      width: 0;
+    }
+  
+    .menuButton {
+      display: block;
+    }
+  }
+  

@@ -6,22 +6,22 @@ import AllTrades from "./pages/AllTrades";
 import TopEA from "./pages/TopEA";
 
 export const router = createBrowserRouter([
+  // {
+  //   path: "/",
+  //   element: <Homepage />,
+  //   errorElement: <ErrorPage />,
+  // },
+  // {
+  //   path: "/magic_no/:acc_no",
+  //   element: <MagicData />,
+  // },
+
+  // {
+  //   path: "/account/:acc_no/magic_no/:magic_no",
+  //   element: <AllTrades />,
+  // },
   {
     path: "/",
-    element: <Homepage />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/magic_no/:acc_no",
-    element: <MagicData />,
-  },
-
-  {
-    path: "/account/:acc_no/magic_no/:magic_no",
-    element: <AllTrades />,
-  },
-  {
-    path: "/topEA",
     element: <TopEA />,
   },
 ]);
