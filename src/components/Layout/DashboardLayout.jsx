@@ -7,7 +7,6 @@ import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Typography from "@mui/material/Typography";
 import Dialog from "../Dialog/Dialog";
-import { Box } from "@mui/material";
 
 const DashboardLayout = ({ title, children }) => {
   const [open, setOpen] = useState(false);

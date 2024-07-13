@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { LocalizationProvider, StaticDatePicker } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import "./DateRangePicker.css";
 import { Box } from "@mui/material";
@@ -27,6 +26,7 @@ const DateRangePicker = () => {
     };
   }, []);
 
+  // eslint-disable-next-line
   const handleStartDateChange = (date) => {
     setStartDate(date);
   };

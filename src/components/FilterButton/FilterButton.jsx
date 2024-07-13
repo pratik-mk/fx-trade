@@ -6,7 +6,6 @@ import {
   Button,
   Divider,
   FormControl,
-  InputLabel,
   MenuItem,
   Select,
   TextField,
