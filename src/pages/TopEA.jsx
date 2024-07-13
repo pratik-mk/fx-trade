@@ -12,6 +12,18 @@ const TopEA = () => {
   const [res, setRes] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filters, setFilters] = useState({});
+  const [dateFilter, setDateFilter] = useState({});
+
+  const handleApplyFilters = (appliedFilters) => {
+    console.log("Applied Filters:", appliedFilters);
+    setFilters(appliedFilters);
+  };
+
+  const handleDateRangeFilter = (dateRangeFilter) => {
+    console.log("Applied Date Filters:", dateRangeFilter);
+    setDateFilter(dateRangeFilter);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -80,8 +92,8 @@ const TopEA = () => {
           <SearchBar />
         </Box>
         <Box sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
-          <FilterButton />
-          <DateRangePicker />
+          <FilterButton onApply={handleApplyFilters} />
+          <DateRangePicker handleDateFilter={handleDateRangeFilter} />
         </Box>
       </Box>
       {res ? (

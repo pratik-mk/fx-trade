@@ -6,6 +6,7 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import "./DateRangePicker.css";
 import { Box } from "@mui/material";
+import moment from "moment";
 
 const DATE_SIZE = 32;
 const DATE_SIZE_STYLE = {
@@ -34,7 +35,7 @@ const DATE_SIZE_STYLE = {
   },
 };
 
-const DateRangePicker = () => {
+const DateRangePicker = ({ handleDateFilter }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [showStartPicker, setShowStartPicker] = useState(true);
@@ -67,8 +68,10 @@ const DateRangePicker = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Start Date:", startDate);
-    console.log("End Date:", endDate);
+    handleDateFilter({
+      startDate: moment(startDate).format("YYYY-MM-DD"),
+      endDate: moment(endDate).format("YYYY-MM-DD"),
+    });
   };
 
   return (
