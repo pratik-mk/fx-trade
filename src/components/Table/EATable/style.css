@@ -1,0 +1,71 @@
+.table {
+  min-width: 100%;
+  background-color: #2c2c2c;
+  border-spacing: 0;
+}
+.cell {
+  color: #ffffff !important;
+  border-bottom: none !important;
+  padding: 8px 16px;
+  text-align: center ;
+}
+.magicNumberCell {
+  color: yellow !important;
+  text-align: center !important;
+}
+.redText.MuiTableCell-root{
+  color: red ;
+  border-bottom: none !important;
+}
+.greenText.MuiTableCell-root {
+  color: green;
+  border-bottom: none !important;
+}
+.tableContainer {
+  margin-top: 10px;
+  border: none;
+  padding: 0;
+  border-bottom: none;
+  width: auto ;
+  height:auto ;
+  
+  margin-left: 120px;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+.label {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+.MuiTableCellAlignCenter.MuiTableCell-alignCenter {
+  border-bottom: none;
+}
+.css-1ygcj2i-MuiTableCell-root {
+  color:#ffffff !important;
+  border-bottom: none !important;
+}
+.underlineText {
+  text-decoration: underline;
+}
+.magicNumberLink {
+  color: yellow;
+  text-decoration: underline;
+}
+.headDefault {
+  background-color: #1f1f1f;
+}
+.headAlternative {
+  background-color: #2c2c2c;
+}
+.linkButton {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  font: inherit;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,41 @@
+.modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 2px solid #000;
+    box-shadow: 24px;
+    padding: 36px;
+  }
+  
+  .modal-description {
+    margin-top: 16px;
+  }
+  
+  .modal-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+  
+  .button-yes {
+    background-color: blue;
+  }
+  
+  .button-yes:hover {
+    background-color: darkblue;
+    
+     }
+  .button-cancel {
+    color: grey;
+    border-color: grey;
+    margin-right: 240px !important;
+  }
+  .button-cancel:hover {
+    color: darkgrey;
+    border-color: darkgrey;
+  }
+  
