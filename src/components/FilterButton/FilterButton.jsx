@@ -51,12 +51,23 @@ const FilterButton = ({ onApply }) => {
   return (
     <div className="filterPopupContainer" ref={popupRef}>
       <Button
-        variant="outlined"
-        className="filterButton"
+        variant="contained"
+        sx={{
+          padding: "12px 20px",
+          textTransform: "capitalize",
+          gap: "10px",
+          fontSize: "16px",
+          borderRadius: "6px",
+          backgroundColor: "#1C1C1C",
+          color: "#ffffff",
+          "&.MuiButtonBase-root:hover": {
+            bgcolor: "#1C1C1C",
+          },
+        }}
         onClick={() => setShowPopup(!showPopup)}
       >
         <TuneIcon />
-        Filter Options
+        Filter
       </Button>
       {showPopup && (
         <div className="popUp">

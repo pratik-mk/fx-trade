@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { LocalizationProvider, StaticDatePicker } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import EventNoteOutlinedIcon from "@mui/icons-material/EventNoteOutlined";
 import "./DateRangePicker.css";
 import { Box } from "@mui/material";
 import moment from "moment";
@@ -69,8 +69,8 @@ const DateRangePicker = ({ handleDateFilter }) => {
 
   const handleSubmit = () => {
     handleDateFilter({
-      startDate: moment(startDate).format("YYYY-MM-DD"),
-      endDate: moment(endDate).format("YYYY-MM-DD"),
+      start_date: moment(startDate).format("YYYY-MM-DD"),
+      end_date: moment(endDate).format("YYYY-MM-DD"),
     });
   };
 
@@ -78,13 +78,25 @@ const DateRangePicker = ({ handleDateFilter }) => {
     <div className="dateRangePickerContainer" ref={popupRef}>
       <LocalizationProvider dateAdapter={AdapterMoment}>
         <Button
-          variant="outlined"
+          sx={{
+            padding: "12px 20px",
+            textTransform: "capitalize",
+            gap: "10px",
+            fontSize: "16px",
+            borderRadius: "6px",
+            backgroundColor: "#1C1C1C",
+            color: "#ffffff",
+            "&.MuiButtonBase-root:hover": {
+              bgcolor: "#1C1C1C",
+            },
+          }}
+          variant="contained"
           color="primary"
           onClick={() => setShowPopup(!showPopup)}
           className="dateRangePickerButton"
         >
-          <CalendarMonthIcon />
-          Select Dates
+          <EventNoteOutlinedIcon />
+          Calendar
         </Button>
         {showPopup && (
           <div className="popUp">
