@@ -94,19 +94,19 @@ const TopEA = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          backgroundColor: "#060606",
+          backgroundColor: "#111111",
           padding: "25px",
           marginLeft: "120px",
           borderRadius: "6px",
         }}
       >
         <Box sx={{ width: "400px" }}>
-          <SearchBar />
+          <Box sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
+            <FilterButton onApply={handleApplyFilters} />
+            <DateRangePicker handleDateFilter={handleDateRangeFilter} />
+          </Box>
         </Box>
-        <Box sx={{ display: "flex", gap: "20px", alignItems: "center" }}>
-          <FilterButton onApply={handleApplyFilters} />
-          <DateRangePicker handleDateFilter={handleDateRangeFilter} />
-        </Box>
+        <SearchBar id="root-searchbox" />
       </Box>
       {res ? (
         Object.keys(res).map((rowData, i) => (
@@ -114,7 +114,7 @@ const TopEA = () => {
             key={i}
             rows={res[rowData].data}
             columns={TOP_EA_COLUMNS}
-            isEven={parseInt(rowData.split("-")[1]) % 2 === 0}
+            isEven={parseInt(i) % 2 === 0}
             rowData={rowData}
           />
         ))

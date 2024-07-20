@@ -95,6 +95,11 @@ export const HIGHLIGHTED_COLUMNS = [
   "avg_net_pips",
   "avg_trade",
   "best_trade",
+  "gross_loss",
+  "worst_trade",
+  "total_lose_pips",
+  "net_pips",
+  "consecutive_losses",
 ];
 
 export const ACCOUNT_PATH = "ACCOUNT_PAGE";

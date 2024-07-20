@@ -72,3 +72,12 @@
   color: #D4D4D4 !important;
   border-bottom: none !important;
 }
+.bodyDefault {
+  background-color: #242424;
+}
+.bodyAlternative {
+  background-color: #111111;
+}
+.MuiTableCell-root{
+  border-bottom: none !important;
+}

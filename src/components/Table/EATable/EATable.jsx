@@ -29,7 +29,7 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
             {columns.map((column) => (
               <TableCell
                 sx={{ whiteSpace: "nowrap" }}
-                className="labelCell"
+                className={isEven ? "bodyDefault" : "bodyAlternative"}
                 key={column.id}
               >
                 <Typography sx={{ fontSize: 14 }}>{column.label}</Typography>
@@ -38,7 +38,7 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
           </TableRow>
         </TableHead>
 
-        <TableBody>
+        <TableBody className={isEven ? "bodyDefault" : "bodyAlternative"}>
           {rows.map((row, index) => (
             <TableRow key={index}>
               {columns.map((column) => (

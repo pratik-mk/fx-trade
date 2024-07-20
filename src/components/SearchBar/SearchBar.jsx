@@ -17,6 +17,7 @@ const Search = styled("div")(({ theme }) => ({
     marginLeft: theme.spacing(1),
     width: "auto",
   },
+  color: "#FFFFF",
 }));
 
 const SearchIconWrapper = styled("div")(({ theme }) => ({
@@ -27,10 +28,11 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  color: "white",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
+  color: "white",
   width: "100%",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
@@ -48,7 +50,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchBar() {
   return (
-    <Box>
+    <Box id="root">
       <Search>
         <SearchIconWrapper>
           <SearchIcon />

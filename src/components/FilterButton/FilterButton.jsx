@@ -25,18 +25,18 @@ const FilterButton = ({ onApply }) => {
 
   const popupRef = useRef(null);
 
-  const handleClickOutside = (event) => {
-    if (popupRef.current && !popupRef.current.contains(event.target)) {
-      setShowPopup(false);
-    }
-  };
+  // const handleClickOutside = (event) => {
+  //   if (popupRef.current && !popupRef.current.contains(event.target)) {
+  //     setShowPopup(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -72,7 +72,9 @@ const FilterButton = ({ onApply }) => {
       {showPopup && (
         <div className="popUp">
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography>Magic number</Typography>
+            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+              Magic number
+            </Typography>
             <TextField
               name="magic_number"
               value={filters.magic_number}
@@ -87,9 +89,9 @@ const FilterButton = ({ onApply }) => {
               variant="outlined"
             />
           </Box>
-          <Divider />
+          <hr />
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography>PF</Typography>
+            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>PF</Typography>
             <TextField
               name="pf"
               value={filters.pf}
@@ -104,9 +106,11 @@ const FilterButton = ({ onApply }) => {
               variant="outlined"
             />
           </Box>
-          <Divider />
+          <hr />
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography>Win %</Typography>
+            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+              Win %
+            </Typography>
             <TextField
               name="win_percentage"
               value={filters.win_percentage}
@@ -121,9 +125,11 @@ const FilterButton = ({ onApply }) => {
               variant="outlined"
             />
           </Box>
-          <Divider />
+          <hr />
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography>No of Trades</Typography>
+            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+              No of Trades
+            </Typography>
             <TextField
               name="no_of_trades"
               value={filters.no_of_trades}
@@ -138,11 +144,14 @@ const FilterButton = ({ onApply }) => {
               variant="outlined"
             />
           </Box>
-          <Divider />
+          <hr />
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography>Buy/Sell</Typography>
+            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+              Buy/Sell
+            </Typography>
             <FormControl size="small">
               <Select
+                sx={{ width: "87px" }}
                 name="trade_type"
                 value={filters.trade_type}
                 onChange={handleChange}
@@ -159,18 +168,21 @@ const FilterButton = ({ onApply }) => {
               </Select>
             </FormControl>
           </Box>
-          <Divider />
+          <hr />
           <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography>Profit/Loss</Typography>
+            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+              Profit/Loss
+            </Typography>
             <FormControl size="small">
               <Select
+                sx={{ width: "87px" }}
                 name="profit"
                 value={filters.profit}
                 onChange={handleChange}
                 inputProps={{
                   style: {
                     height: "5px",
-                    width: "60px",
+                    width: "87px",
                   },
                 }}
                 id="profit-loss-dropdown"
@@ -180,7 +192,7 @@ const FilterButton = ({ onApply }) => {
               </Select>
             </FormControl>
           </Box>
-          <Divider />
+          <hr />
           <Box sx={{ display: "flex", gap: "10px" }}>
             <Button
               variant="outlined"
