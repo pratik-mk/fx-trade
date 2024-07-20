@@ -14,6 +14,7 @@ const TopEA = () => {
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState({});
   const [dateFilter, setDateFilter] = useState({});
+  const [searchQuery, setSearchQuery] = useState({});
 
   const handleApplyFilters = (appliedFilters) => {
     console.log("Applied Filters:", appliedFilters);
@@ -25,12 +26,17 @@ const TopEA = () => {
     setDateFilter(dateRangeFilter);
   };
 
+  const handleSearchSubmit = (query) => {
+    console.log("Search Query:", query);
+    setSearchQuery(query);
+  };
+
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
       setError(null);
 
-      const combinedFilters = { ...filters, ...dateFilter };
+      const combinedFilters = { ...filters, ...dateFilter, ...searchQuery };
       const query = new URLSearchParams(
         Object.fromEntries(
           Object.entries(combinedFilters).filter(
@@ -49,7 +55,7 @@ const TopEA = () => {
       }
     }
     fetchData();
-  }, [filters, dateFilter]);
+  }, [filters, dateFilter, searchQuery]);
 
   if (loading) {
     return (
@@ -106,7 +112,7 @@ const TopEA = () => {
             <DateRangePicker handleDateFilter={handleDateRangeFilter} />
           </Box>
         </Box>
-        <SearchBar id="root-searchbox" />
+        <SearchBar id="root-searchbox" onSearchSubmit={handleSearchSubmit} />
       </Box>
       {res ? (
         Object.keys(res).map((rowData, i) => (

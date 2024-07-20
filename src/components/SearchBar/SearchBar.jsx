@@ -48,7 +48,19 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchBar() {
+export default function SearchBar({ onSearchSubmit }) {
+  const [searchInput, setSearchInput] = React.useState("");
+
+  const handleInputChange = (event) => {
+    setSearchInput(event.target.value);
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      onSearchSubmit({ magic_no: searchInput });
+    }
+  };
+
   return (
     <Box id="root">
       <Search>
@@ -58,6 +70,9 @@ export default function SearchBar() {
         <StyledInputBase
           placeholder="Search…"
           inputProps={{ "aria-label": "search" }}
+          value={searchInput}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
         />
       </Search>
     </Box>
