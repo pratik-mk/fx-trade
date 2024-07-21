@@ -6,6 +6,7 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import ShieldOutlinedIcon from "@mui/icons-material/ShieldOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 import Dialog from "../Dialog/Dialog";
 
 const DashboardLayout = ({ title, children }) => {
@@ -16,32 +17,65 @@ const DashboardLayout = ({ title, children }) => {
   return (
     <>
       <div className="side-navbar">
-        <div className="logo">
+        <Box
+          className="logo"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
           <img src={logo} alt="tradr logo" />
-        </div>
-        <div className="nav-links">
-          <ul>
-            <li>
-              <GridViewIcon />
-            </li>
-            <li>
-              <AdminPanelSettingsOutlinedIcon />
-            </li>
-            <li>
-              <ShieldOutlinedIcon />
-            </li>
-            <li className="logout" onClick={handleOpen}>
-              <LogoutIcon />
-            </li>
-          </ul>
-        </div>
+        </Box>
+        <Box
+          className="nav-links"
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          flexGrow={1}
+        >
+          <Box
+            className="nav-item"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <GridViewIcon />
+          </Box>
+          <Box
+            className="nav-item"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <AdminPanelSettingsOutlinedIcon />
+          </Box>
+          <Box
+            className="nav-item"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <ShieldOutlinedIcon />
+          </Box>
+        </Box>
+        <Box
+          className="logout"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          onClick={handleOpen}
+          sx={{ marginTop: "auto", paddingBottom: 2 }}
+        >
+          <LogoutIcon />
+        </Box>
       </div>
-      <div className="namee">
-        <Typography variant="h5" gutterBottom>
-          {title}
-        </Typography>
+      <div className="content">
+        <Box>
+          <Typography variant="h5" gutterBottom>
+            {title}
+          </Typography>
+          {children}
+        </Box>
       </div>
-      <div style={{ marginLeft: "120px" }}>{children}</div>
       <Dialog open={open} handleClose={handleClose} />
     </>
   );
