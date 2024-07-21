@@ -102,7 +102,6 @@ const TopEA = () => {
           justifyContent: "space-between",
           backgroundColor: "#111111",
           padding: "25px",
-          marginLeft: "120px",
           borderRadius: "6px",
         }}
       >

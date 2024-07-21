@@ -41,7 +41,7 @@ const DashboardLayout = ({ title, children }) => {
           {title}
         </Typography>
       </div>
-      <div>{children}</div>
+      <div style={{ marginLeft: "120px" }}>{children}</div>
       <Dialog open={open} handleClose={handleClose} />
     </>
   );
