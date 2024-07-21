@@ -38,23 +38,23 @@ export const rowData = [
 ];
 
 export const ALL_TRADES_HEADER = [
-  "account",
-  "close_price",
-  "close_time",
-  "comment",
-  "commission",
   "id",
-  "lots",
-  "magic_number",
-  "open_price",
-  "open_time",
+  "account",
   "order_id",
-  "order_type",
-  "pnl",
-  "sl",
-  "swap",
+  "magic_number",
   "symbol",
+  "lots",
+  "order_type",
+  "open_time",
+  "close_time",
+  "open_price",
+  "close_price",
+  "sl",
   "tp",
+  "pnl",
+  "commission",
+  "swap",
+  "comment",
 ];
 
 export const TOP_EA_COLUMNS = [
@@ -100,6 +100,7 @@ export const HIGHLIGHTED_COLUMNS = [
   "total_lose_pips",
   "net_pips",
   "consecutive_losses",
+  "pnl",
 ];
 
 export const ACCOUNT_PATH = "ACCOUNT_PAGE";

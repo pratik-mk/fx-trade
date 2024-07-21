@@ -70,7 +70,7 @@ const DashboardLayout = ({ title, children }) => {
       </div>
       <div className="content">
         <Box>
-          <Typography variant="h5" gutterBottom>
+          <Typography sx={{ fontSize: "30px" }} gutterBottom>
             {title}
           </Typography>
           {children}

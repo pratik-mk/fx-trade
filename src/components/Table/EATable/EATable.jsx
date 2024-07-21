@@ -14,6 +14,7 @@ import CandlestickChartOutlinedIcon from "@mui/icons-material/CandlestickChartOu
 
 import "./style.css";
 import { HIGHLIGHTED_COLUMNS } from "../../../utils/constant";
+import { Link } from "react-router-dom";
 
 const EATable = ({ rows, columns, isEven, rowData }) => {
   return (
@@ -53,7 +54,10 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
                   key={column.id}
                 >
                   {column.id === "magic_number" ? (
-                    <Box sx={{ display: "flex", justifyContent: "center" }}>
+                    <Link
+                      style={{ display: "flex", justifyContent: "center" }}
+                      to={`/account/${rowData}/magic_no/${row[column.id]}`}
+                    >
                       <Typography
                         sx={{
                           textDecoration: "underline",
@@ -65,9 +69,12 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
                         {row[column.id]}
                       </Typography>
                       <button className="linkButton">
-                        <CandlestickChartOutlinedIcon fontSize="medium" />
+                        <CandlestickChartOutlinedIcon
+                          color="white"
+                          fontSize="medium"
+                        />
                       </button>
-                    </Box>
+                    </Link>
                   ) : (
                     <Typography sx={{ fontSize: 14 }}>
                       {row[column.id]}

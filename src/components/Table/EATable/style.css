@@ -7,15 +7,15 @@
   color: #ffffff !important;
   border-bottom: none !important;
   padding: 8px 16px;
-  text-align: center ;
+  text-align: center;
 }
 .magicNumberCell {
   color: yellow !important;
   text-align: center !important;
 }
-.redText.MuiTableCell-root{
+.redText.MuiTableCell-root {
   font-size: 14;
-  color: red ;
+  color: red;
   border-bottom: none !important;
 }
 .greenText.MuiTableCell-root {
@@ -26,8 +26,8 @@
   border: none;
   padding: 0;
   border-bottom: none;
-  width: auto ;
-  height:auto ;
+  width: auto;
+  height: auto;
   overflow: hidden;
 }
 .label {
@@ -40,7 +40,7 @@
   border-bottom: none;
 }
 .css-1ygcj2i-MuiTableCell-root {
-  color:#ffffff !important;
+  color: #ffffff !important;
   border-bottom: none !important;
 }
 .underlineText {
@@ -51,7 +51,7 @@
   text-decoration: underline;
 }
 .headDefault {
-  background-color: #1C1C1C;
+  background-color: #1c1c1c;
 }
 .headAlternative {
   background-color: #161616;
@@ -59,15 +59,15 @@
 .linkButton {
   background: none;
   border: none;
-  color: inherit;
+  color: white;
   cursor: pointer;
   text-decoration: underline;
   font: inherit;
   display: flex;
   align-items: center;
 }
-.defaultText{
-  color: #D4D4D4 !important;
+.defaultText {
+  color: #d4d4d4 !important;
   border-bottom: none !important;
 }
 .bodyDefault {
@@ -76,6 +76,6 @@
 .bodyAlternative {
   background-color: #111111;
 }
-.MuiTableCell-root{
+.MuiTableCell-root {
   border-bottom: none !important;
 }
