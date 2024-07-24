@@ -7,6 +7,7 @@ import FilterButton from "../components/FilterButton/FilterButton";
 import DateRangePicker from "../components/DateRangePicker/DateRangePicker";
 import SearchBar from "../components/SearchBar/SearchBar";
 import { getTopEa } from "../services/api";
+import { queryGenerator } from "../utils/utils";
 
 const TopEA = () => {
   const [res, setRes] = useState(null);
@@ -35,18 +36,9 @@ const TopEA = () => {
     async function fetchData() {
       setLoading(true);
       setError(null);
-
       const combinedFilters = { ...filters, ...dateFilter, ...searchQuery };
-      const query = new URLSearchParams(
-        Object.fromEntries(
-          Object.entries(combinedFilters).filter(
-            ([_, v]) => v != null && v !== ""
-          )
-        )
-      ).toString();
-
       try {
-        const response = await getTopEa(query);
+        const response = await getTopEa(queryGenerator(combinedFilters));
         setRes(response.data.data.data);
       } catch (err) {
         setError(err.message);
