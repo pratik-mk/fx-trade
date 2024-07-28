@@ -10,47 +10,53 @@ import {
   Typography,
 } from "@mui/material";
 import CandlestickChartOutlinedIcon from "@mui/icons-material/CandlestickChartOutlined";
-
-import "./style.css";
-import { HIGHLIGHTED_COLUMNS } from "../../../utils/constant";
 import { Link } from "react-router-dom";
+import { HIGHLIGHTED_COLUMNS } from "../../../utils/constant";
+
+import styles from "./EATable.module.css";
 
 const EATable = ({ rows, columns, isEven, rowData }) => {
   return (
-    <TableContainer component={Paper} className="tableContainer">
-      <Table className="table" aria-label="simple table">
-        <TableHead className={isEven ? "headAlternative" : "headDefault"}>
-          <TableRow className={isEven ? "headDefault" : "headAlternative"}>
-            <TableCell colSpan={100} className="labelCell">
-              <Typography sx={{ fontSize: 20 }}>{rowData}</Typography>
+    <TableContainer component={Paper} className={styles.tableContainer}>
+      <Table className={styles.table} aria-label="simple table">
+        <TableHead className={isEven ? styles.headAlternative : styles.headDefault}>
+          <TableRow className={isEven ? styles.headDefault : styles.headAlternative}>
+            <TableCell colSpan={100} className={styles.labelCell}>
+              <Typography sx={{ fontSize: 24, fontWeight: "bold" }}>{rowData}</Typography>
             </TableCell>
           </TableRow>
           <TableRow>
             {columns.map((column) => (
               <TableCell
-                sx={{ whiteSpace: "nowrap" }}
-                className={isEven ? "bodyDefault" : "bodyAlternative"}
+                sx={{ whiteSpace: "nowrap", textAlign: "center", fontSize: 20, fontWeight: "bold" }}
+                className={isEven ? styles.bodyDefault : styles.bodyAlternative}
                 key={column.id}
               >
-                <Typography sx={{ fontSize: 14 }}>{column.label}</Typography>
+                <Typography sx={{ fontSize: 17, textAlign: "center", fontWeight: "bold" }}>
+                  {column.label}
+                </Typography>
               </TableCell>
             ))}
           </TableRow>
         </TableHead>
 
-        <TableBody className={isEven ? "bodyDefault" : "bodyAlternative"}>
+        <TableBody className={isEven ? styles.bodyDefault : styles.bodyAlternative}>
           {rows.map((row, index) => (
             <TableRow key={index}>
               {columns.map((column) => (
                 <TableCell
-                  className={
-                    HIGHLIGHTED_COLUMNS.includes(column.id)
-                      ? row[column.id] < 0
-                        ? "redText"
-                        : "greenText"
-                      : "defaultText"
-                  }
                   key={column.id}
+                  sx={{
+                    textAlign: "center",
+                    color: HIGHLIGHTED_COLUMNS.includes(column.id)
+                      ? row[column.id] < 0
+                        ? "red"
+                        : "green"
+                      : "#d4d4d4",
+                    borderBottom: "none",
+                    fontSize: 14,
+                    fontWeight:"bold",
+                  }}
                 >
                   {column.id === "magic_number" ? (
                     <Link
@@ -63,19 +69,18 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
                           color: "#F9BB01",
                           cursor: "pointer",
                           fontSize: 14,
+                          textAlign: "center",
+                          fontWeight: "bold",
                         }}
                       >
                         {row[column.id]}
                       </Typography>
-                      <button className="linkButton">
-                        <CandlestickChartOutlinedIcon
-                          color="white"
-                          fontSize="medium"
-                        />
+                      <button className={styles.linkButton}>
+                        <CandlestickChartOutlinedIcon fontSize="medium" />
                       </button>
                     </Link>
                   ) : (
-                    <Typography sx={{ fontSize: 14 }}>
+                    <Typography sx={{ fontSize: 14, textAlign: "center", fontWeight: "bold" }}>
                       {row[column.id]}
                     </Typography>
                   )}

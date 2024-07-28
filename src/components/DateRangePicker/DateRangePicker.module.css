@@ -1,0 +1,57 @@
+.dateRangePickerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.dateRangePickerButton {
+  padding: 12px 20px;
+  text-transform: capitalize;
+  gap: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  background-color: #000000;
+  color: #ece0e0;
+}
+
+.dateRangePickerButton:hover {
+  background-color: #1c1c1c;
+}
+
+.popUp {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1c1c1c;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.popUpItem {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.dateFields {
+  display: flex;
+  gap: 10px;
+  padding: 25px 0;
+}
+
+.submitButton {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}

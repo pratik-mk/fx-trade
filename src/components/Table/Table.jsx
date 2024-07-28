@@ -7,10 +7,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Link } from "react-router-dom";
-import { formatHeader } from "../../utils/utils";
 import { Typography } from "@mui/material";
+import { formatHeader } from "../../utils/utils";
 import { HIGHLIGHTED_COLUMNS } from "../../utils/constant";
-import "./style.css";
 
 export default function BasicTable({ columns, rowData, path }) {
   console.log("ROW-DATA: ", rowData);
@@ -25,7 +24,6 @@ export default function BasicTable({ columns, rowData, path }) {
             {columns.map((column, index) => (
               <TableCell key={index} align="left" sx={{ whiteSpace: "nowrap" }}>
                 <Typography sx={{ fontSize: 14, color: "#BCBCBC" }}>
-                  {" "}
                   {formatHeader(column)}
                 </Typography>
               </TableCell>
@@ -40,20 +38,25 @@ export default function BasicTable({ columns, rowData, path }) {
                     <TableCell key={colIndex} align="left">
                       {column === "magic_number" ? (
                         <Link
-                          className="defaultText"
+                          style={{
+                            fontSize: "14px",
+                            color: "#d4d4d4",
+                            textDecoration: "none",
+                          }}
                           to={`/account/${row["account"]}/magic_no/${row[column]}`}
                         >
                           {row[column]}
                         </Link>
                       ) : (
                         <Typography
-                          className={
-                            HIGHLIGHTED_COLUMNS.includes(column)
+                          sx={{
+                            fontSize: "14px",
+                            color: HIGHLIGHTED_COLUMNS.includes(column)
                               ? row[column] < 0
-                                ? "redText"
-                                : "greenText"
-                              : "defaultText"
-                          }
+                                ? "red"
+                                : "green"
+                              : "#d4d4d4",
+                          }}
                         >
                           {row[column]}
                         </Typography>
@@ -65,7 +68,16 @@ export default function BasicTable({ columns, rowData, path }) {
             : rowData.map((data, rowIndex) => (
                 <TableRow key={rowIndex}>
                   <TableCell align="left">
-                    <Link to={`/magic_no/${data}`}>{data}</Link>
+                    <Link
+                      style={{
+                        fontSize: "14px",
+                        color: "#d4d4d4",
+                        textDecoration: "none",
+                      }}
+                      to={`/magic_no/${data}`}
+                    >
+                      {data}
+                    </Link>
                   </TableCell>
                 </TableRow>
               ))}

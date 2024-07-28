@@ -1,0 +1,59 @@
+.filterPopupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; 
+}
+
+.filterButton {
+  padding: 12px 20px;
+  text-transform: capitalize;
+  gap: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  background-color: #1c1c1c;
+  color: #ffffff;
+}
+
+.popUp {
+  position: absolute;
+  top: 100%; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  background: #1c1c1c;
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 1;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 275px;
+}
+
+.filterItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 5px 0;
+}
+
+.label {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+ .input {
+  height: 2px;
+  width: 60px;
+  padding: 0px !important;
+} 
+
+.select {
+  width: 87px;
+}
+
+.buttonContainer {
+  display: flex;
+  gap: 10px;
+}
