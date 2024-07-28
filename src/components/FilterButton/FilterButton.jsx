@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import TuneIcon from "@mui/icons-material/Tune";
 import { Box, Button, Divider, FormControl, MenuItem, Select, TextField, Typography } from "@mui/material";
 import styles from "./FilterButton.module.css";
@@ -26,6 +26,41 @@ const FilterButton = ({ onApply }) => {
     setShowPopup(false);
   };
 
+  const handleCancel = () => {
+    setFilters({
+      magic_number: "",
+      pf: "",
+      win_percentage: "",
+      no_of_trades: "",
+      trade_type: "",
+      profit: "",
+    });
+    setShowPopup(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(event.target) &&
+        !event.target.classList.contains('dropdown-option') &&
+        !event.target.classList.contains('MuiSelect-select')
+      ) {
+        handleCancel();
+      }
+    };
+
+    if (showPopup) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showPopup]);
+
   return (
     <div className={styles.filterPopupContainer} ref={popupRef}>
       <Button
@@ -42,7 +77,7 @@ const FilterButton = ({ onApply }) => {
             bgcolor: "#333333", 
           },
         }}
-        onClick={() => setShowPopup(!showPopup)}
+        onClick={() => setShowPopup(true)}
       >
         <TuneIcon />
         Filter
@@ -68,7 +103,7 @@ const FilterButton = ({ onApply }) => {
               }}
             />
           </Box>
-          <Divider />
+          <Divider sx={{ width: '100%', my: 1 }} />
           <Box className={styles.filterItem}>
             <Typography className={styles.label}>PF</Typography>
             <TextField
@@ -86,7 +121,7 @@ const FilterButton = ({ onApply }) => {
               }}
             />
           </Box>
-          <Divider />
+          <Divider sx={{ width: '100%', my: 1 }} />
           <Box className={styles.filterItem}>
             <Typography className={styles.label}>
               Win %
@@ -106,7 +141,7 @@ const FilterButton = ({ onApply }) => {
               }}
             />
           </Box>
-          <Divider />
+          <Divider sx={{ width: '100%', my: 1 }} />
           <Box className={styles.filterItem}>
             <Typography className={styles.label}>
               No of Trades
@@ -126,7 +161,7 @@ const FilterButton = ({ onApply }) => {
               }}
             />
           </Box>
-          <Divider />
+          <Divider sx={{ width: '100%', my: 1 }} />
           <Box className={styles.filterItem}>
             <Typography className={styles.label}>
               Buy/Sell
@@ -137,6 +172,7 @@ const FilterButton = ({ onApply }) => {
                 value={filters.trade_type}
                 onChange={handleChange}
                 id="buy-sell-dropdown"
+                className="MuiSelect-select"
                 sx={{
                   height: "30px",
                   "& .MuiSelect-select": {
@@ -144,12 +180,12 @@ const FilterButton = ({ onApply }) => {
                   },
                 }}
               >
-                <MenuItem value={"Buy"}>Buy</MenuItem>
-                <MenuItem value={"Sell"}>Sell</MenuItem>
+                <MenuItem value={"Buy"} className="dropdown-option">Buy</MenuItem>
+                <MenuItem value={"Sell"} className="dropdown-option">Sell</MenuItem>
               </Select>
             </FormControl>
           </Box>
-          <Divider />
+          <Divider sx={{ width: '100%', my: 1 }} />
           <Box className={styles.filterItem}>
             <Typography className={styles.label}>
               Profit/Loss
@@ -160,6 +196,7 @@ const FilterButton = ({ onApply }) => {
                 value={filters.profit}
                 onChange={handleChange}
                 id="profit-loss-dropdown"
+                className="MuiSelect-select"
                 sx={{
                   height: "30px",
                   "& .MuiSelect-select": {
@@ -167,24 +204,26 @@ const FilterButton = ({ onApply }) => {
                   },
                 }}
               >
-                <MenuItem value={true}>Profit</MenuItem>
-                <MenuItem value={false}>Loss</MenuItem>
+                <MenuItem value={true} className="dropdown-option">Profit</MenuItem>
+                <MenuItem value={false} className="dropdown-option">Loss</MenuItem>
               </Select>
             </FormControl>
           </Box>
-          <Divider />
+          <Divider sx={{ width: '100%', my: 1 }} />
           <Box className={styles.buttonContainer}>
             <Button
               variant="outlined"
               sx={{
-                borderColor: "#ffffff",
+                borderColor: "#808080",
                 color: "#ffffff",
+                padding: "10px 20px",
+                minWidth: "130px",
                 "&:hover": {
                   bgcolor: "#ffffff",
                   color: "#1C1C1C", 
                 },
               }}
-              onClick={() => setShowPopup(false)}
+              onClick={handleCancel}
             >
               Cancel
             </Button>
@@ -193,6 +232,9 @@ const FilterButton = ({ onApply }) => {
               sx={{
                 borderColor: "#ffffff",
                 color: "#ffffff",
+                padding: "10px 20px",
+                minWidth: "130px",
+                bgcolor: "#1e90ff",
                 "&:hover": {
                   bgcolor: "#ffffff",
                   color: "#1C1C1C", 

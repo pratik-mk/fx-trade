@@ -17,22 +17,22 @@ import styles from "./EATable.module.css";
 
 const EATable = ({ rows, columns, isEven, rowData }) => {
   return (
-    <TableContainer component={Paper} className={styles.tableContainer}>
-      <Table className={styles.table} aria-label="simple table">
-        <TableHead className={isEven ? styles.headAlternative : styles.headDefault}>
-          <TableRow className={isEven ? styles.headDefault : styles.headAlternative}>
-            <TableCell colSpan={100} className={styles.labelCell}>
-              <Typography sx={{ fontSize: 24, fontWeight: "bold" }}>{rowData}</Typography>
+    <TableContainer component={Paper} className={styles.tableContainer} sx={{ border: "none" }}>
+      <Table className={styles.table} aria-label="simple table" sx={{ border: "none" }}>
+        <TableHead className={isEven ? styles.headAlternative : styles.headDefault} sx={{ border: "none" }}>
+          <TableRow className={isEven ? styles.headDefault : styles.headAlternative} sx={{ border: "none" }}>
+            <TableCell colSpan={100} className={styles.labelCell} sx={{ border: "none" }}>
+              <Typography sx={{ fontSize: 24, fontWeight: "bold", border: "none",color:"#d4d4d4"}}>{rowData}</Typography>
             </TableCell>
           </TableRow>
-          <TableRow>
+          <TableRow sx={{ border: "none" }}>
             {columns.map((column) => (
               <TableCell
-                sx={{ whiteSpace: "nowrap", textAlign: "center", fontSize: 20, fontWeight: "bold" }}
-                className={isEven ? styles.bodyDefault : styles.bodyAlternative}
                 key={column.id}
+                className={isEven ? styles.bodyDefault : styles.bodyAlternative}
+                sx={{ whiteSpace: "nowrap", textAlign: "center", fontSize: 20, fontWeight: "bold", border: "none" }}
               >
-                <Typography sx={{ fontSize: 17, textAlign: "center", fontWeight: "bold" }}>
+                <Typography sx={{ fontSize: 17, textAlign: "center", fontWeight: "bold", border: "none",color:"#d4d4d4" }}>
                   {column.label}
                 </Typography>
               </TableCell>
@@ -40,9 +40,9 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
           </TableRow>
         </TableHead>
 
-        <TableBody className={isEven ? styles.bodyDefault : styles.bodyAlternative}>
+        <TableBody className={isEven ? styles.bodyDefault : styles.bodyAlternative} sx={{ border: "none" }}>
           {rows.map((row, index) => (
-            <TableRow key={index}>
+            <TableRow key={index} sx={{ border: "none" }}>
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
@@ -55,7 +55,8 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
                       : "#d4d4d4",
                     borderBottom: "none",
                     fontSize: 14,
-                    fontWeight:"bold",
+                    fontWeight: "bold",
+                    border: "none"
                   }}
                 >
                   {column.id === "magic_number" ? (
@@ -71,6 +72,7 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
                           fontSize: 14,
                           textAlign: "center",
                           fontWeight: "bold",
+                          border: "none"
                         }}
                       >
                         {row[column.id]}
@@ -80,7 +82,7 @@ const EATable = ({ rows, columns, isEven, rowData }) => {
                       </button>
                     </Link>
                   ) : (
-                    <Typography sx={{ fontSize: 14, textAlign: "center", fontWeight: "bold" }}>
+                    <Typography sx={{ fontSize: 14, textAlign: "center", fontWeight: "bold", border: "none" }}>
                       {row[column.id]}
                     </Typography>
                   )}

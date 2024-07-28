@@ -17,12 +17,16 @@ export default function BasicTable({ columns, rowData, path }) {
   const isRowDataArrayOfObjects =
     rowData.length > 0 && typeof rowData[0] === "object";
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead sx={{ backgroundColor: "#1C1C1C" }}>
-          <TableRow>
+    <TableContainer component={Paper} sx={{ border: "none" }}>
+      <Table sx={{ minWidth: 650, border: "none" }} aria-label="simple table">
+        <TableHead sx={{ backgroundColor: "#1C1C1C", border: "none" }}>
+          <TableRow sx={{ border: "none" }}>
             {columns.map((column, index) => (
-              <TableCell key={index} align="left" sx={{ whiteSpace: "nowrap" }}>
+              <TableCell
+                key={index}
+                align="center" // Align header text to center
+                sx={{ whiteSpace: "nowrap", border: "none" }}
+              >
                 <Typography sx={{ fontSize: 14, color: "#BCBCBC" }}>
                   {formatHeader(column)}
                 </Typography>
@@ -30,12 +34,16 @@ export default function BasicTable({ columns, rowData, path }) {
             ))}
           </TableRow>
         </TableHead>
-        <TableBody sx={{ backgroundColor: "#111111" }}>
+        <TableBody sx={{ backgroundColor: "#111111", border: "none" }}>
           {isRowDataArrayOfObjects
             ? rowData.map((row, rowIndex) => (
-                <TableRow key={rowIndex}>
+                <TableRow key={rowIndex} sx={{ border: "none" }}>
                   {columns.map((column, colIndex) => (
-                    <TableCell key={colIndex} align="left">
+                    <TableCell
+                      key={colIndex}
+                      align="center" // Align body text to center
+                      sx={{ border: "none" }}
+                    >
                       {column === "magic_number" ? (
                         <Link
                           style={{
@@ -66,8 +74,8 @@ export default function BasicTable({ columns, rowData, path }) {
                 </TableRow>
               ))
             : rowData.map((data, rowIndex) => (
-                <TableRow key={rowIndex}>
-                  <TableCell align="left">
+                <TableRow key={rowIndex} sx={{ border: "none" }}>
+                  <TableCell align="center" sx={{ border: "none" }}>
                     <Link
                       style={{
                         fontSize: "14px",

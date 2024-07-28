@@ -139,25 +139,13 @@ const DateRangePicker = ({ handleDateFilter }) => {
             <Box className={styles.buttonContainer}>
               <Button
                 sx={{
-                  backgroundColor: "#1976d2",
+                  backgroundColor: "#1e90ff",
                   "&:hover": {
-                    backgroundColor: "#115293",
+                    backgroundColor: "#f0f0f0",
                   },
-                  color: "#fff",
-                  marginRight: "8px",
-                }}
-                variant="contained"
-                onClick={() => setShowPopup(false)}
-              >
-                Cancel
-              </Button>
-              <Button
-                sx={{
-                  backgroundColor: "#1976d2",
-                  "&:hover": {
-                    backgroundColor: "#115293",
-                  },
-                  color: "#fff",
+                  color: "#1C1C1C",
+                  padding: "12px 20px",
+                  width: "100%",
                 }}
                 variant="contained"
                 onClick={handleSubmit}

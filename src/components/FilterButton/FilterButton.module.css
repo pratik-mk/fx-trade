@@ -1,8 +1,9 @@
+/* FilterButton.module.css */
 .filterPopupContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative; 
+  position: relative;
 }
 
 .filterButton {
@@ -17,9 +18,9 @@
 
 .popUp {
   position: absolute;
-  top: 100%; 
-  left: 50%; 
-  transform: translateX(-50%); 
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   background: #1c1c1c;
   padding: 10px;
   border-radius: 4px;
@@ -33,6 +34,7 @@
 
 .filterItem {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: 5px 0;
@@ -43,11 +45,11 @@
   color: #ffffff;
 }
 
- .input {
+.input {
   height: 2px;
   width: 60px;
   padding: 0px !important;
-} 
+}
 
 .select {
   width: 87px;
@@ -56,4 +58,7 @@
 .buttonContainer {
   display: flex;
   gap: 10px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
 }

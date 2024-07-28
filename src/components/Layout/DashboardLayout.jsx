@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useLocation, useNavigate,Link } from "react-router-dom";
 import styles from "./Dashboard.module.css";
 import logo from "../../assets/logo.svg";
 import GridViewIcon from "@mui/icons-material/GridView";
@@ -10,37 +11,47 @@ import Dialog from "../Dialog/Dialog";
 
 const DashboardLayout = ({ title, children }) => {
   const [open, setOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("dashboard");
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const handleLinkClick = (linkName) => {
-    setActiveLink(linkName);
+    navigate(`/${linkName}`);
   };
+
+  const getActiveLink = () => {
+    if (location.pathname.includes("top-ea")) return "top-ea";
+    if (location.pathname.includes("admin")) return "admin";
+    if (location.pathname.includes("api-test")) return "api-test";
+    return "";
+  };
+
+  const activeLink = getActiveLink();
 
   return (
     <>
       <div className={styles.sideNavbar}>
         <div className={styles.logo}>
-          <img src={logo} alt="tradr logo" />
+        <Link to="/top-ea"><img src={logo} alt="tradr logo" /></Link>
         </div>
         <div className={styles.navLinks}>
           <div
-            className={`${styles.navItem} ${activeLink === "dashboard" ? styles.active : ""}`}
-            onClick={() => handleLinkClick("dashboard")}
+            className={`${styles.navItem} ${activeLink === "top-ea" ? styles.active : ""}`}
+            onClick={() => handleLinkClick("top-ea")}
           >
             <GridViewIcon />
           </div>
           <div
-            className={`${styles.navItem} ${activeLink === "admin" ? styles.active : ""}`}
-            onClick={() => handleLinkClick("admin")}
+            className={`${styles.navItem} ${activeLink === "api-test" ? styles.active : ""}`}
+            onClick={() => handleLinkClick("api-test")}
           >
             <AdminPanelSettingsOutlinedIcon />
           </div>
           <div
-            className={`${styles.navItem} ${activeLink === "shield" ? styles.active : ""}`}
-            onClick={() => handleLinkClick("shield")}
+            className={`${styles.navItem} ${activeLink === "api-test" ? styles.active : ""}`}
+            onClick={() => handleLinkClick("api-test")}
           >
             <ShieldOutlinedIcon />
           </div>
@@ -53,11 +64,11 @@ const DashboardLayout = ({ title, children }) => {
         </div>
       </div>
       <div className={styles.content}>
-      <Typography
+        <Typography
           sx={{
-            fontSize: "30px", 
+            fontSize: "30px",
             color: "#fff",
-            fontWeight: "bold", 
+            fontWeight: "bold",
           }}
           gutterBottom
         >
