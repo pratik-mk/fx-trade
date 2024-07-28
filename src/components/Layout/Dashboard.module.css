@@ -1,11 +1,7 @@
-body {
-  background-color: #1c1c1c;
-}
-
-.side-navbar {
+.sideNavbar {
   background-color: #111111;
   width: 100px;
-  height: 100%;
+  height: 100vh; 
   position: fixed;
   top: 0;
   left: 0;
@@ -16,31 +12,46 @@ body {
   color: #fff;
 }
 
-.side-navbar .logo img {
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.logo img {
   width: 65px;
   height: 65px;
-  margin-top: 30px;
   cursor: pointer;
 }
 
-.nav-links {
+.navLinks {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 35px;
   margin-top: 55px;
+  flex-grow: 1;
 }
 
-.nav-item {
+.navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 25px;
   cursor: pointer;
+  transition: color 0.3s;
 }
 
-.nav-item:hover svg {
+.navItem:hover svg {
   color: #ffcc00;
 }
 
 .logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: red;
   padding-bottom: 20px;
@@ -50,8 +61,20 @@ body {
   color: #fff;
 }
 
+.marginTopAuto {
+  margin-top: auto;
+}
+
 .content {
   margin-left: 120px;
   padding: 20px;
   color: #fff;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.active {
+  color: #ffcc00;
 }

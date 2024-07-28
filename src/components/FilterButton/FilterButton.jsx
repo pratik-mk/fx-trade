@@ -1,16 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import TuneIcon from "@mui/icons-material/Tune";
-import "./styles.css";
-import {
-  Box,
-  Button,
-  Divider,
-  FormControl,
-  MenuItem,
-  Select,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Divider, FormControl, MenuItem, Select, TextField, Typography } from "@mui/material";
+import styles from "./FilterButton.module.css";
 
 const FilterButton = ({ onApply }) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -25,19 +16,6 @@ const FilterButton = ({ onApply }) => {
 
   const popupRef = useRef(null);
 
-  // const handleClickOutside = (event) => {
-  //   if (popupRef.current && !popupRef.current.contains(event.target)) {
-  //     setShowPopup(false);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, []);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFilters((prevFilters) => ({ ...prevFilters, [name]: value }));
@@ -48,8 +26,43 @@ const FilterButton = ({ onApply }) => {
     setShowPopup(false);
   };
 
+  const handleCancel = () => {
+    setFilters({
+      magic_number: "",
+      pf: "",
+      win_percentage: "",
+      no_of_trades: "",
+      trade_type: "",
+      profit: "",
+    });
+    setShowPopup(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        popupRef.current &&
+        !popupRef.current.contains(event.target) &&
+        !event.target.classList.contains('dropdown-option') &&
+        !event.target.classList.contains('MuiSelect-select')
+      ) {
+        handleCancel();
+      }
+    };
+
+    if (showPopup) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showPopup]);
+
   return (
-    <div className="filterPopupContainer" ref={popupRef}>
+    <div className={styles.filterPopupContainer} ref={popupRef}>
       <Button
         variant="contained"
         sx={{
@@ -60,150 +73,173 @@ const FilterButton = ({ onApply }) => {
           borderRadius: "6px",
           backgroundColor: "#1C1C1C",
           color: "#ffffff",
-          "&.MuiButtonBase-root:hover": {
-            bgcolor: "#1C1C1C",
+          "&:hover": {
+            bgcolor: "#333333", 
           },
         }}
-        onClick={() => setShowPopup(!showPopup)}
+        onClick={() => setShowPopup(true)}
       >
         <TuneIcon />
         Filter
       </Button>
       {showPopup && (
-        <div className="popUp">
-          <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+        <div className={styles.popUp}>
+          <Box className={styles.filterItem}>
+            <Typography className={styles.label}>
               Magic number
             </Typography>
             <TextField
               name="magic_number"
               value={filters.magic_number}
               onChange={handleChange}
-              inputProps={{
-                style: {
-                  height: "5px",
-                  width: "60px",
-                },
-              }}
               size="small"
               variant="outlined"
+              sx={{
+                width: "33%", 
+                "& .MuiInputBase-root": {
+                  height: "30px",
+                  padding: "0 10px",
+                },
+              }}
             />
           </Box>
-          <hr />
-          <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>PF</Typography>
+          <Divider sx={{ width: '100%', my: 1 }} />
+          <Box className={styles.filterItem}>
+            <Typography className={styles.label}>PF</Typography>
             <TextField
               name="pf"
               value={filters.pf}
               onChange={handleChange}
-              inputProps={{
-                style: {
-                  height: "5px",
-                  width: "60px",
-                },
-              }}
               size="small"
               variant="outlined"
+              sx={{
+                width: "33%", 
+                "& .MuiInputBase-root": {
+                  height: "30px",
+                  padding: "0 10px",
+                },
+              }}
             />
           </Box>
-          <hr />
-          <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+          <Divider sx={{ width: '100%', my: 1 }} />
+          <Box className={styles.filterItem}>
+            <Typography className={styles.label}>
               Win %
             </Typography>
             <TextField
               name="win_percentage"
               value={filters.win_percentage}
               onChange={handleChange}
-              inputProps={{
-                style: {
-                  height: "5px",
-                  width: "60px",
-                },
-              }}
               size="small"
               variant="outlined"
+              sx={{
+                width: "33%", 
+                "& .MuiInputBase-root": {
+                  height: "30px",
+                  padding: "0 10px",
+                },
+              }}
             />
           </Box>
-          <hr />
-          <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+          <Divider sx={{ width: '100%', my: 1 }} />
+          <Box className={styles.filterItem}>
+            <Typography className={styles.label}>
               No of Trades
             </Typography>
             <TextField
               name="no_of_trades"
               value={filters.no_of_trades}
               onChange={handleChange}
-              inputProps={{
-                style: {
-                  height: "5px",
-                  width: "60px",
-                },
-              }}
               size="small"
               variant="outlined"
+              sx={{
+                width: "33%", 
+                "& .MuiInputBase-root": {
+                  height: "30px",
+                  padding: "0 10px",
+                },
+              }}
             />
           </Box>
-          <hr />
-          <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+          <Divider sx={{ width: '100%', my: 1 }} />
+          <Box className={styles.filterItem}>
+            <Typography className={styles.label}>
               Buy/Sell
             </Typography>
-            <FormControl size="small">
+            <FormControl size="small" sx={{ width: "33%" }}>
               <Select
-                sx={{ width: "87px" }}
                 name="trade_type"
                 value={filters.trade_type}
                 onChange={handleChange}
-                inputProps={{
-                  style: {
-                    height: "5px",
-                    width: "60px",
+                id="buy-sell-dropdown"
+                className="MuiSelect-select"
+                sx={{
+                  height: "30px",
+                  "& .MuiSelect-select": {
+                    padding: "0 10px",
                   },
                 }}
-                id="buy-sell-dropdown"
               >
-                <MenuItem value={"Buy"}>Buy</MenuItem>
-                <MenuItem value={"Sell"}>Sell</MenuItem>
+                <MenuItem value={"Buy"} className="dropdown-option">Buy</MenuItem>
+                <MenuItem value={"Sell"} className="dropdown-option">Sell</MenuItem>
               </Select>
             </FormControl>
           </Box>
-          <hr />
-          <Box display={"flex"} justifyContent={"space-between"} width={"100%"}>
-            <Typography sx={{ fontSize: 16, color: "#FFFFFF" }}>
+          <Divider sx={{ width: '100%', my: 1 }} />
+          <Box className={styles.filterItem}>
+            <Typography className={styles.label}>
               Profit/Loss
             </Typography>
-            <FormControl size="small">
+            <FormControl size="small" sx={{ width: "33%" }}>
               <Select
-                sx={{ width: "87px" }}
                 name="profit"
                 value={filters.profit}
                 onChange={handleChange}
-                inputProps={{
-                  style: {
-                    height: "5px",
-                    width: "87px",
+                id="profit-loss-dropdown"
+                className="MuiSelect-select"
+                sx={{
+                  height: "30px",
+                  "& .MuiSelect-select": {
+                    padding: "0 10px",
                   },
                 }}
-                id="profit-loss-dropdown"
               >
-                <MenuItem value={true}>Profit</MenuItem>
-                <MenuItem value={false}>Loss</MenuItem>
+                <MenuItem value={true} className="dropdown-option">Profit</MenuItem>
+                <MenuItem value={false} className="dropdown-option">Loss</MenuItem>
               </Select>
             </FormControl>
           </Box>
-          <hr />
-          <Box sx={{ display: "flex", gap: "10px" }}>
+          <Divider sx={{ width: '100%', my: 1 }} />
+          <Box className={styles.buttonContainer}>
             <Button
               variant="outlined"
-              className="filterButton"
-              onClick={() => setShowPopup(false)}
+              sx={{
+                borderColor: "#808080",
+                color: "#ffffff",
+                padding: "10px 20px",
+                minWidth: "130px",
+                "&:hover": {
+                  bgcolor: "#ffffff",
+                  color: "#1C1C1C", 
+                },
+              }}
+              onClick={handleCancel}
             >
               Cancel
             </Button>
             <Button
               variant="outlined"
-              className="filterButton"
+              sx={{
+                borderColor: "#ffffff",
+                color: "#ffffff",
+                padding: "10px 20px",
+                minWidth: "130px",
+                bgcolor: "#1e90ff",
+                "&:hover": {
+                  bgcolor: "#ffffff",
+                  color: "#1C1C1C", 
+                },
+              }}
               onClick={handleApply}
             >
               Apply
