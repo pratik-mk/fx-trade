@@ -45,13 +45,11 @@ const DashboardLayout = ({ title, children }) => {
           </div>
           <div
             className={`${styles.navItem} ${activeLink === "api-test" ? styles.active : ""}`}
-            onClick={() => handleLinkClick("api-test")}
           >
             <AdminPanelSettingsOutlinedIcon />
           </div>
           <div
             className={`${styles.navItem} ${activeLink === "api-test" ? styles.active : ""}`}
-            onClick={() => handleLinkClick("api-test")}
           >
             <ShieldOutlinedIcon />
           </div>
