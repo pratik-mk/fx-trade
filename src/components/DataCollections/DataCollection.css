@@ -1,0 +1,55 @@
+.data-collection {
+    background-color: #1b1b1b;
+    color: #fff;
+    width: 100%;
+    margin-right: 2px;
+    padding-right: 20px;
+    
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .tabs {
+    display: flex;
+  }
+  
+  .tab {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .tab.selected {
+    background-color: #888;
+  }
+  
+  .ranges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+  
+  .range-button {
+    background-color: #333;
+    color: #fff;
+   
+    padding: 18px 0;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .range-button.selected {
+    background-color: #fff;
+    color: #000;
+  }
+  

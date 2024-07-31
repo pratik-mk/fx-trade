@@ -1,0 +1,92 @@
+[
+    {
+      "Account": "123456",
+      "Magic Number": "78",
+      "Avg Lose": 1500.50,
+      "Avg.Loss Pips": -20.5,
+      "Avg Net Pips": 5.3,
+      "Avg Trade": 350.75,
+      "Avg Trade Time": "1h 25m"
+    },
+    {
+      "Account": "234567",
+      "Magic Number": "89",
+      "Avg Lose": 1200.75,
+      "Avg.Loss Pips": -15.3,
+      "Avg Net Pips": 4.8,
+      "Avg Trade": 420.65,
+      "Avg Trade Time": "2h 10m"
+    },
+    {
+      "Account": "345678",
+      "Magic Number": "91",
+      "Avg Lose": 1350.25,
+      "Avg.Loss Pips": -18.4,
+      "Avg Net Pips": 6.1,
+      "Avg Trade": 310.45,
+      "Avg Trade Time": "3h 5m"
+    },
+    {
+      "Account": "456789",
+      "Magic Number": "10",
+      "Avg Lose": 1600.00,
+      "Avg.Loss Pips": -22.0,
+      "Avg Net Pips": 5.7,
+      "Avg Trade": 365.85,
+      "Avg Trade Time": "1h 50m"
+    },
+    {
+      "Account": "567890",
+      "Magic Number": "11",
+      "Avg Lose": 1400.30,
+      "Avg.Loss Pips": -19.5,
+      "Avg Net Pips": 6.0,
+      "Avg Trade": 380.25,
+      "Avg Trade Time": "2h 45m"
+    },
+    {
+      "Account": "678901",
+      "Magic Number": "12",
+      "Avg Lose": 1250.60,
+      "Avg.Loss Pips": -17.0,
+      "Avg Net Pips": 5.5,
+      "Avg Trade": 330.15,
+      "Avg Trade Time": "3h 15m"
+    },
+    {
+      "Account": "789012",
+      "Magic Number": "13",
+      "Avg Lose": 1450.85,
+      "Avg.Loss Pips": -20.0,
+      "Avg Net Pips": 6.3,
+      "Avg Trade": 400.75,
+      "Avg Trade Time": "1h 30m"
+    },
+    {
+      "Account": "890123",
+      "Magic Number": "14",
+      "Avg Lose": 1550.95,
+      "Avg.Loss Pips": -21.5,
+      "Avg Net Pips": 5.9,
+      "Avg Trade": 370.35,
+      "Avg Trade Time": "2h 20m"
+    },
+    {
+      "Account": "901234",
+      "Magic Number": "15",
+      "Avg Lose": 1100.20,
+      "Avg.Loss Pips": -14.5,
+      "Avg Net Pips": 4.5,
+      "Avg Trade": 295.65,
+      "Avg Trade Time": "3h 30m"
+    },
+    {
+      "Account": "012345",
+      "Magic Number": "16",
+      "Avg Lose": 1300.70,
+      "Avg.Loss Pips": -16.8,
+      "Avg Net Pips": 5.1,
+      "Avg Trade": 320.85,
+      "Avg Trade Time": "2h 5m"
+    }
+  ]

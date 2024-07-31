@@ -3,6 +3,7 @@ import Homepage from "./pages/Homepage";
 import ErrorPage from "./pages/Errorpage";
 import TopEA from "./pages/TopEA";
 import AllTrades from "./pages/AllTrades";
+import DashboardTable from '../src/components/Dashboard/DashboardTable'
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
   {
     path: "/top-ea",
     element: <TopEA />,
+    errorElement: <ErrorPage />,
+  }, {
+    path: '/dashboard',
+    element: <DashboardTable />,
     errorElement: <ErrorPage />,
   },
   {
