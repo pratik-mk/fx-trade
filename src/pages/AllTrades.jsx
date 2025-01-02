@@ -14,7 +14,7 @@ const AllTrades = () => {
 
   const fetchAlTradesByMagicNo = useCallback(async () => {
     const response = await getAllTradeByMagicNumber(acc_no, magic_no);
-    setAllTrades(response.data.data.data);
+    setAllTrades([]);
   }, [acc_no, magic_no]);
 
   useEffect(() => {
