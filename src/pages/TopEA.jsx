@@ -39,7 +39,7 @@ const TopEA = () => {
       const combinedFilters = { ...filters, ...dateFilter, ...searchQuery };
       try {
         const response = await getTopEa(queryGenerator(combinedFilters));
-        setRes(response.data.data.data);
+        setRes([]);
       } catch (err) {
         setError(err.message);
       } finally {
